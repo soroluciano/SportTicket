@@ -22,4 +22,6 @@ class Usuario {
 	cantidadEventos(blank:false)
 	promedio(blank:false,scale:2)
     }
+	
+	
 }
