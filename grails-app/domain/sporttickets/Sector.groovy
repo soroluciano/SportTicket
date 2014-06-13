@@ -8,5 +8,8 @@ class Sector {
 	String descripcion
 	
     static constraints = {
+	nombre(blank:false,maxsize:50)
+	precio(blank:false,scale:2)
+	descripcion(maxsize:200)
     }
 }

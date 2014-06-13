@@ -9,6 +9,7 @@ class ComprobanteReserva {
 	
 	
     static constraints = {
+	descripcion(blank:false,maxsize:200)
     }
 	
 	

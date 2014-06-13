@@ -13,5 +13,13 @@ class Usuario {
 	Integer promedio
 	
     static constraints = {
+	idSocio(blank:false, maxsize:50,unique:true)	
+	nombre(blank: false, maxsize:50)
+    apellido(blank: false, maxsize:50)
+	mail(email:true)
+	dni(blank:false,maxsize:8)
+	tipoUsuario(blank:false)
+	cantidadEventos(blank:false)
+	promedio(blank:false,scale:2)
     }
 }
