@@ -5,7 +5,7 @@ class UsuarioController {
     def scaffold = true
 
 		def crearUsuarios(){
-		11 times{
+		12 times{
 					
 				}
 		}
