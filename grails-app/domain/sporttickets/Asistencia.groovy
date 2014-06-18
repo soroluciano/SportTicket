@@ -6,5 +6,8 @@ class Asistencia {
 	Boolean asistencia
 	
     static constraints = {
-    }
-}
+	}
+
+  }
+	
+
