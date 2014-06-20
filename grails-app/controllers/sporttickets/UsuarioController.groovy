@@ -15,7 +15,9 @@ class UsuarioController {
     }
 
     def show(Usuario usuarioInstance) {
-        respond usuarioInstance
+        
+		respond usuarioInstance
+		
     }
 
     def create() {
