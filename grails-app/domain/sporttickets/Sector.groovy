@@ -9,10 +9,7 @@ class Sector {
 	
     static constraints = {
 	nombre(blank:false,maxsize:50)
-	capacidad(range:20000..70000)
-	precio(blank:false)
+	precio(blank:false,scale:2)
 	descripcion(maxsize:200)
     }
-	
-	}
- 
+}
