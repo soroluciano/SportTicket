@@ -9,8 +9,7 @@ import grails.transaction.Transactional
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    
-	def scaffold= true
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count()]
@@ -103,5 +102,3 @@ class UsuarioController {
         }
     }
 }
-
-
