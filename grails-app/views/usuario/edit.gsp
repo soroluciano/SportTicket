@@ -1,5 +1,6 @@
 <%@ page import="sporttickets.Usuario" %>
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<meta name="layout" content="main">
