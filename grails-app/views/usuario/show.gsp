@@ -59,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioInstance?.contrasenia}">
-				<li class="fieldcontain">
-					<span id="contrasenia-label" class="property-label"><g:message code="usuario.contrasenia.label" default="Contrasenia" /></span>
-					
-						<span class="property-value" aria-labelledby="contrasenia-label"><g:fieldValue bean="${usuarioInstance}" field="contrasenia"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${usuarioInstance?.dni}">
 				<li class="fieldcontain">
 					<span id="dni-label" class="property-label"><g:message code="usuario.dni.label" default="Dni" /></span>

@@ -1,9 +1,10 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	url ="jdbc:sqlserver://localhost:4586; databaseName=SportTicket"    
+	username = "sa"
+    password = "desa"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -18,7 +19,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:file:~/.h2;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+			url ="jdbc:sqlserver://localhost:4586; databaseName=SportTicket" 
         }
     }
     test {

@@ -38,15 +38,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'contrasenia', 'error')} required">
-	<label for="contrasenia">
-		<g:message code="usuario.contrasenia.label" default="Contrasenia" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="password" name="contrasenia" required="" value="${usuarioInstance?.contrasenia}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'dni', 'error')} required">
 	<label for="dni">
 		<g:message code="usuario.dni.label" default="Dni" />
