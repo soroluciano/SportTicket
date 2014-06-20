@@ -8,6 +8,7 @@ class Partido {
 	
 	
     static constraints = {
-	fechaHora{validator:{it <new Date()}}
+     estadio(blank:false, maxsize:50)
+     fechaHora(blank:false)
     }
 }
