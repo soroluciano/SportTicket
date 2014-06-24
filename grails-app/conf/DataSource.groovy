@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 	url ="jdbc:sqlserver://localhost:4586; databaseName=SportTicket"    
 	username = "sa"
-    password = "desa"
+    password = "123456"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -18,7 +18,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
 			url ="jdbc:sqlserver://localhost:4586; databaseName=SportTicket" 
         }
     }

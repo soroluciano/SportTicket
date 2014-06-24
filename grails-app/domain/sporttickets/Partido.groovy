@@ -3,11 +3,12 @@ package sporttickets
 
 class Partido {
 	
-	def estadio = new Estadio();
-	def fechaHora = new Date()
+	Estadio estadio = new Estadio()
+	Date fechaHora = new Date()
 	
+	static belongsTo =[estadio:Estadio]
 	
     static constraints = {
-	fechaHora{validator:{it <new Date()}}
+	fechaHora(blank:false)
     }
 }

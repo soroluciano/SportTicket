@@ -74,3 +74,30 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'comprobantereserva', 'error')} required">
+	<label for="comprobantereserva">
+		<g:message code="usuario.comprobantereserva.label" default="Comprobantereserva" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="comprobantereserva" name="comprobantereserva.id" from="${sporttickets.ComprobanteReserva.list()}" optionKey="id" required="" value="${usuarioInstance?.comprobantereserva?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'rankings', 'error')} ">
+	<label for="rankings">
+		<g:message code="usuario.rankings.label" default="Rankings" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${usuarioInstance?.rankings?}" var="r">
+    <li><g:link controller="ranking" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="ranking" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'ranking.label', default: 'Ranking')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+

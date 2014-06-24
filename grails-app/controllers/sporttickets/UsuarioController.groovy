@@ -1,6 +1,7 @@
 package sporttickets
 
 
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -15,9 +16,7 @@ class UsuarioController {
     }
 
     def show(Usuario usuarioInstance) {
-        
-		respond usuarioInstance
-		
+        respond usuarioInstance
     }
 
     def create() {

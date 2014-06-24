@@ -1,0 +1,43 @@
+Aclaracion relaciones de la Base de Datos
+
+-Cambie la entidad Ranking para en vez de definir una lista de Sectores. Generar una lista de Asistencias.
+
+- Un estadio tiene varios sectores (1 a N). Consiedrando que el sistema es armado para un único club.
+
+- Un estadio va a tener varios partidos por campeonato considerando que el sistema es para un único club.
+
+-Un comprobante de Reserva va a ser para ún unico partido ( 1 a 1).
+
+-Un comprobante de Reserva es para un varios sectores( 1 A N)  Por ejemplo : el comprobante 3 y 4 puede ser para Platea.
+
+-Varios Uusarios poseen un unico comprobante.(N A 1) para que el usaurio pueda asistir en la segunda fecha.
+
+-Muchos usuarios poseen muchas asistencias( N A N ) de esta forma genero la otra clase ranking.
+
+-Con estas realciones hay que borrar la base de datos y luego volver a crearla en SQLserver para que me genere las relaciones
+necesarias.
+
+-Tambien defini un par de atributos de la clase de Dominio.
+
+Cualquier duda me preguntan.
+
+Un abrazo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -2,10 +2,12 @@ package sporttickets
 
 class Ranking {
 	
-	def listaUsuarios = new ArrayList<Usuario>()
-	def static hasMany = [usuario:Usuario]
-	def ListaSectores = new ArrayList<Sector>()
+    List<Usuario> listaUsuarios = new ArrayList<Usuario>()
+	def static belongsTo = [usuario:Usuario,asistencia:Asistencia]
+	List<Asistencia> ListaAsistencias = new ArrayList<Asistencia>()
+	
 	
     static constraints = {
+	
     }
 }

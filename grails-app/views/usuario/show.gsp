@@ -95,6 +95,26 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${usuarioInstance?.comprobantereserva}">
+				<li class="fieldcontain">
+					<span id="comprobantereserva-label" class="property-label"><g:message code="usuario.comprobantereserva.label" default="Comprobantereserva" /></span>
+					
+						<span class="property-value" aria-labelledby="comprobantereserva-label"><g:link controller="comprobanteReserva" action="show" id="${usuarioInstance?.comprobantereserva?.id}">${usuarioInstance?.comprobantereserva?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuarioInstance?.rankings}">
+				<li class="fieldcontain">
+					<span id="rankings-label" class="property-label"><g:message code="usuario.rankings.label" default="Rankings" /></span>
+					
+						<g:each in="${usuarioInstance.rankings}" var="r">
+						<span class="property-value" aria-labelledby="rankings-label"><g:link controller="ranking" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:usuarioInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

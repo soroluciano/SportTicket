@@ -1,6 +1,5 @@
 
 <%@ page import="sporttickets.Usuario" %>
-
 <!DOCTYPE html>
 <html>
 	<head>

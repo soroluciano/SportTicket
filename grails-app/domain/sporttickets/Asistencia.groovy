@@ -2,9 +2,11 @@ package sporttickets
 
 class Asistencia {
 
-	def partido = new Partido()
+	Partido partido = new Partido()
 	Boolean asistencia
 	
+	static hasMany = [rankings: Ranking]
     static constraints = {
+	asistencia(blank:false)
     }
 }
