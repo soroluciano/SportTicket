@@ -6,7 +6,7 @@ class Sector {
 	Integer capacidad
 	Integer precio
 	String descripcion
-	static belongsTo = [estadio:Estadio,comprobantereserva:ComprobanteReserva]
+	static belongsTo = [estadio:Estadio]
 	
     static constraints = {
 	nombre(blank:false,maxsize:50)

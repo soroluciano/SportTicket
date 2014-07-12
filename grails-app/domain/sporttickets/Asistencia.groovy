@@ -5,7 +5,7 @@ class Asistencia {
 	Partido partido = new Partido()
 	Boolean asistencia
 	
-	static hasMany = [rankings: Ranking]
+	static belongsTo =[partido:Partido,usuario:Usuario]
     static constraints = {
 	asistencia(blank:false)
     }
