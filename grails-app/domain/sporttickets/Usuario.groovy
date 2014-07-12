@@ -10,11 +10,11 @@ class Usuario {
 	List<Asistencia> listaAsistencias = new ArrayList<Asistencia>()
 	Integer cantidadEventos
 	Integer promedio
-	Boolean Prioridad
-	Date FechaIngreso
-	
-  static hasMany=[asistencias:Asistencia]
-    static constraints = {	
+	Boolean prioridad
+	Date fechaingreso
+	static hasMany=[asistencias:Asistencia]
+    
+	static constraints = {	
 	nombre(blank: false, maxsize:50)
     apellido(blank: false, maxsize:50)
 	mail(email:true)
@@ -22,6 +22,8 @@ class Usuario {
 	tipoUsuario(blank:false)
 	cantidadEventos(blank:false)
 	promedio(blank:false,scale:2)
+	fechaingreso(nullable:true)
+	prioridad(nullable:true)
     }
 	
 	

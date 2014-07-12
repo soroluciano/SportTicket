@@ -61,6 +61,14 @@ grails {
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
     }
+	mail {
+		host = "smtp.gmail.com"
+		port = 465
+		username = "cyrweb3@gmail.com"
+		password = "Web31234"
+		props = ["smtp.gmail.com":"true",
+		"smtp.gmail.com":"25"]
+	}
 }
 
 

@@ -23,6 +23,35 @@
 			</g:if>
 			<ol class="property-list partido">
 			
+				<g:if test="${partidoInstance?.fechaHora}">
+				<li class="fieldcontain">
+					<span id="fechaHora-label" class="property-label"><g:message code="partido.fechaHora.label" default="Fecha Hora" /></span>
+					
+						<span class="property-value" aria-labelledby="fechaHora-label"><g:formatDate date="${partidoInstance?.fechaHora}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${partidoInstance?.asistencias}">
+				<li class="fieldcontain">
+					<span id="asistencias-label" class="property-label"><g:message code="partido.asistencias.label" default="Asistencias" /></span>
+					
+						<g:each in="${partidoInstance.asistencias}" var="a">
+						<span class="property-value" aria-labelledby="asistencias-label"><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${partidoInstance?.estadio}">
+				<li class="fieldcontain">
+					<span id="estadio-label" class="property-label"><g:message code="partido.estadio.label" default="Estadio" /></span>
+					
+						<span class="property-value" aria-labelledby="estadio-label"><g:link controller="estadio" action="show" id="${partidoInstance?.estadio?.id}">${partidoInstance?.estadio?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:partidoInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

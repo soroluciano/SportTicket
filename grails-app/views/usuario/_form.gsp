@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'idSocio', 'error')} required">
-	<label for="idSocio">
-		<g:message code="usuario.idSocio.label" default="Id Socio" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="idSocio" type="number" value="${usuarioInstance.idSocio}" required=""/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'nombre', 'error')} required">
 	<label for="nombre">
 		<g:message code="usuario.nombre.label" default="Nombre" />
@@ -74,27 +65,36 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'comprobantereserva', 'error')} required">
-	<label for="comprobantereserva">
-		<g:message code="usuario.comprobantereserva.label" default="Comprobantereserva" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'fechaingreso', 'error')} ">
+	<label for="fechaingreso">
+		<g:message code="usuario.fechaingreso.label" default="Fechaingreso" />
+		
 	</label>
-	<g:select id="comprobantereserva" name="comprobantereserva.id" from="${sporttickets.ComprobanteReserva.list()}" optionKey="id" required="" value="${usuarioInstance?.comprobantereserva?.id}" class="many-to-one"/>
+	<g:datePicker name="fechaingreso" precision="day"  value="${usuarioInstance?.fechaingreso}" default="none" noSelection="['': '']" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'rankings', 'error')} ">
-	<label for="rankings">
-		<g:message code="usuario.rankings.label" default="Rankings" />
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'prioridad', 'error')} ">
+	<label for="prioridad">
+		<g:message code="usuario.prioridad.label" default="Prioridad" />
+		
+	</label>
+	<g:checkBox name="prioridad" value="${usuarioInstance?.prioridad}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'asistencias', 'error')} ">
+	<label for="asistencias">
+		<g:message code="usuario.asistencias.label" default="Asistencias" />
 		
 	</label>
 	
 <ul class="one-to-many">
-<g:each in="${usuarioInstance?.rankings?}" var="r">
-    <li><g:link controller="ranking" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+<g:each in="${usuarioInstance?.asistencias?}" var="a">
+    <li><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="ranking" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'ranking.label', default: 'Ranking')])}</g:link>
+<g:link controller="asistencia" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'asistencia.label', default: 'Asistencia')])}</g:link>
 </li>
 </ul>
 

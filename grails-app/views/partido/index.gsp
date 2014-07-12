@@ -24,11 +24,19 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="fechaHora" title="${message(code: 'partido.fechaHora.label', default: 'Fecha Hora')}" />
+					
+						<th><g:message code="partido.estadio.label" default="Estadio" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${partidoInstanceList}" status="i" var="partidoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					
+						<td><g:link action="show" id="${partidoInstance.id}">${fieldValue(bean: partidoInstance, field: "fechaHora")}</g:link></td>
+					
+						<td>${fieldValue(bean: partidoInstance, field: "estadio")}</td>
 					
 					</tr>
 				</g:each>

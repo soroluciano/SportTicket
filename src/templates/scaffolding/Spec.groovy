@@ -1,13 +1,11 @@
-package sporttickets
-
-
+<%=packageName ? "package ${packageName}\n\n" : ''%>
 
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(RankingController)
-@Mock(Ranking)
-class RankingControllerSpec extends Specification {
+@TestFor(${className}Controller)
+@Mock(${className})
+class ${className}ControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +19,8 @@ class RankingControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.rankingInstanceList
-            model.rankingInstanceCount == 0
+            !model.${modelName}List
+            model.${modelName}Count == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,32 +28,32 @@ class RankingControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.rankingInstance!= null
+            model.${modelName}!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
-            def ranking = new Ranking()
-            ranking.validate()
-            controller.save(ranking)
+            def ${propertyName} = new ${className}()
+            ${propertyName}.validate()
+            controller.save(${propertyName})
 
         then:"The create view is rendered again with the correct model"
-            model.rankingInstance!= null
+            model.${modelName}!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            ranking = new Ranking(params)
+            ${propertyName} = new ${className}(params)
 
-            controller.save(ranking)
+            controller.save(${propertyName})
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/ranking/show/1'
+            response.redirectedUrl == '/${propertyName}/show/1'
             controller.flash.message != null
-            Ranking.count() == 1
+            ${className}.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -67,11 +65,11 @@ class RankingControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def ranking = new Ranking(params)
-            controller.show(ranking)
+            def ${propertyName} = new ${className}(params)
+            controller.show(${propertyName})
 
         then:"A model is populated containing the domain instance"
-            model.rankingInstance == ranking
+            model.${modelName} == ${propertyName}
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -83,11 +81,11 @@ class RankingControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def ranking = new Ranking(params)
-            controller.edit(ranking)
+            def ${propertyName} = new ${className}(params)
+            controller.edit(${propertyName})
 
         then:"A model is populated containing the domain instance"
-            model.rankingInstance == ranking
+            model.${modelName} == ${propertyName}
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +94,28 @@ class RankingControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/ranking/index'
+            response.redirectedUrl == '/${propertyName}/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def ranking = new Ranking()
-            ranking.validate()
-            controller.update(ranking)
+            def ${propertyName} = new ${className}()
+            ${propertyName}.validate()
+            controller.update(${propertyName})
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.rankingInstance == ranking
+            model.${modelName} == ${propertyName}
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            ranking = new Ranking(params).save(flush: true)
-            controller.update(ranking)
+            ${propertyName} = new ${className}(params).save(flush: true)
+            controller.update(${propertyName})
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/ranking/show/$ranking.id"
+            response.redirectedUrl == "/${propertyName}/show/\$${propertyName}.id"
             flash.message != null
     }
 
@@ -127,23 +125,23 @@ class RankingControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/ranking/index'
+            response.redirectedUrl == '/${propertyName}/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def ranking = new Ranking(params).save(flush: true)
+            def ${propertyName} = new ${className}(params).save(flush: true)
 
         then:"It exists"
-            Ranking.count() == 1
+            ${className}.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(ranking)
+            controller.delete(${propertyName})
 
         then:"The instance is deleted"
-            Ranking.count() == 0
-            response.redirectedUrl == '/ranking/index'
+            ${className}.count() == 0
+            response.redirectedUrl == '/${propertyName}/index'
             flash.message != null
     }
 }

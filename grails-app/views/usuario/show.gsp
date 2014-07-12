@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list usuario">
 			
-				<g:if test="${usuarioInstance?.idSocio}">
-				<li class="fieldcontain">
-					<span id="idSocio-label" class="property-label"><g:message code="usuario.idSocio.label" default="Id Socio" /></span>
-					
-						<span class="property-value" aria-labelledby="idSocio-label"><g:fieldValue bean="${usuarioInstance}" field="idSocio"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${usuarioInstance?.nombre}">
 				<li class="fieldcontain">
 					<span id="nombre-label" class="property-label"><g:message code="usuario.nombre.label" default="Nombre" /></span>
@@ -95,21 +86,30 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioInstance?.comprobantereserva}">
+				<g:if test="${usuarioInstance?.fechaingreso}">
 				<li class="fieldcontain">
-					<span id="comprobantereserva-label" class="property-label"><g:message code="usuario.comprobantereserva.label" default="Comprobantereserva" /></span>
+					<span id="fechaingreso-label" class="property-label"><g:message code="usuario.fechaingreso.label" default="Fechaingreso" /></span>
 					
-						<span class="property-value" aria-labelledby="comprobantereserva-label"><g:link controller="comprobanteReserva" action="show" id="${usuarioInstance?.comprobantereserva?.id}">${usuarioInstance?.comprobantereserva?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="fechaingreso-label"><g:formatDate date="${usuarioInstance?.fechaingreso}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioInstance?.rankings}">
+				<g:if test="${usuarioInstance?.prioridad}">
 				<li class="fieldcontain">
-					<span id="rankings-label" class="property-label"><g:message code="usuario.rankings.label" default="Rankings" /></span>
+					<span id="prioridad-label" class="property-label"><g:message code="usuario.prioridad.label" default="Prioridad" /></span>
 					
-						<g:each in="${usuarioInstance.rankings}" var="r">
-						<span class="property-value" aria-labelledby="rankings-label"><g:link controller="ranking" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="prioridad-label"><g:formatBoolean boolean="${usuarioInstance?.prioridad}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${usuarioInstance?.asistencias}">
+				<li class="fieldcontain">
+					<span id="asistencias-label" class="property-label"><g:message code="usuario.asistencias.label" default="Asistencias" /></span>
+					
+						<g:each in="${usuarioInstance.asistencias}" var="a">
+						<span class="property-value" aria-labelledby="asistencias-label"><g:link controller="asistencia" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
